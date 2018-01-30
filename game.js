@@ -3,6 +3,7 @@ var ctx = canvas.getContext('2d');
 var cube = [];
 var count = 0;
 var timer = 0;
+var stop = 0;
 
 
 canvas.onclick = function(event) {
@@ -46,6 +47,9 @@ function drawField() {
 function startLife() {    //Моделирование жизни в клетке
   var cube2 = [];
   for (var i = 0; i < 30; i++) {
+    if(stop == 1){
+        break;
+      }
     cube2[i] = [];
     for (var j = 0; j < 30; j++) {
       var neighbor = 0;
@@ -84,3 +88,9 @@ function recountIndexSubtraction(i) {
 }
 
 document.getElementById('start').onclick = startLife;
+
+function stopGame() {
+  stop = 1;
+}
+
+document.getElementById('stop').onclick = stopGame;
